@@ -1,0 +1,21 @@
+# git and github metadata
+.git/
+.github/
+
+# IDE metadata
+.vscode/
+.VSCode*/
+.idea/
+
+# Dockerfiles
+Dockerfile
+docker-compose.yaml
+docker-compose-deploy.yaml
+
+# Executable files
+*.exe
+gRPCexample
+
+# Docs
+docs/
+README.md

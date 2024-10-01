@@ -1,0 +1,15 @@
+# IDE metadata
+.[Vv][Ss][Cc]ode*/
+.idea/
+
+# Executable files
+*.exe
+gRPCexample
+
+# Docs
+/docs/*
+!/docs/swagger.json
+
+# Secrets
+.env
+.secrets

@@ -1,35 +1,18 @@
-version: '2.29'
-
 services:
-  gRPCexample:
-    build:
+  grpcexample:
+    build: 
       context: .
-      dockerfile: Dockerfile
       args:
-        - GITHUB_TOKEN=${GITHUB_TOKEN}
         - BUILD_MODE=${BUILD_MODE}
-    container_name: gRPCexample
+        - GITHUB_TOKEN=123
     pull_policy: always
     restart: on-failure
+    container_name: grpcexample
     secrets:
-      - gRPCexample_config.yaml
-      # Для добавления авторизации через ziplock и jwt_key 
-      # uncomment следующую строку
-      # - jwt_key
-    # Для добавления подключения к Docker сети базы данных uncomment следующую строку
-    # networks:
-    #   - gRPCexample-db
+       - grpcexample_config.yaml
+    ports:
+      - 4004:4004
 
 secrets:
-  gRPCexample_config.yaml:
-    file: ../.secrets/gRPCexample/gRPCexample_config.yaml
-  # Для добавления авторизации через ziplock и jwt_key 
-  # uncomment следующую строку
-  # jwt_key:
-  #   file: ../.secrets/gRPCexample/jwt_key
-
-# Для добавления подключения к Docker сети базы данных uncomment следующую строку
-# networks:
-#   gRPCexample-db:
-#     name: gRPCexample-db_gRPCexample-db
-  
+  grpcexample_config.yaml:
+    file: ../.secrets/grpcexample_config.yaml

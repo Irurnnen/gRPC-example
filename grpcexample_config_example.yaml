@@ -1,0 +1,13 @@
+# Настройка логгера zap
+# Возможные значения: prod, dev
+zap-config: prod
+# Настройка подключения к postgresql 
+postgres:
+  host: path-to-postgresql
+  port: 3456
+  user: postgresUser
+  password: P1$SW0rd
+  db-name: database-name
+# Настройка хоста и порта сайта
+host: 0.0.0.0
+port: 4004

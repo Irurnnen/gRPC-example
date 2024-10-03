@@ -5,11 +5,11 @@ LABEL stage=gobuilder
 ARG GITHUB_TOKEN
 ARG BUILD_MODE
 
-ENV CGO_ENABLED 0
-ENV GOPRIVATE github.com/exceptionteapots
+ENV CGO_ENABLED=0
+ENV GOPRIVATE=github.com/exceptionteapots
 RUN apk update --no-cache && apk add --no-cache git
 RUN go install github.com/swaggo/swag/cmd/swag@latest
-RUN git config --global url."https://exceptionteapots:$GITHUB_TOKEN@github.com/".insteadOf "https://github.com/"
+# RUN git config --global url."https://exceptionteapots:$GITHUB_TOKEN@github.com/".insteadOf "https://github.com/"
 
 WORKDIR /build
 

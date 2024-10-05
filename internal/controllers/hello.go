@@ -5,6 +5,8 @@ import (
 
 	"github.com/Irurnnen/gRPCexample/internal/models"
 	pb "github.com/Irurnnen/gRPCexample/proto"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 type HelloController struct {
@@ -21,6 +23,8 @@ func (hc *HelloController) SayHello(ctx context.Context, in *pb.HelloRequest) (*
 	switch err {
 	case nil:
 		break
+	case models.ErrExample:
+		return &pb.HelloReply{}, status.Error(codes.OutOfRange, err.Error())
 	default:
 		// TODO: Create error example
 		return &pb.HelloReply{}, nil

@@ -1,6 +1,7 @@
 # git and github metadata
 .git/
 .github/
+.gitignore
 
 # IDE metadata
 .vscode/
@@ -8,6 +9,7 @@
 .idea/
 
 # Dockerfiles
+.dockerignore
 Dockerfile
 docker-compose.yaml
 docker-compose-deploy.yaml
@@ -19,3 +21,11 @@ gRPCexample
 # Docs
 docs/
 README.md
+
+# Proto gen files
+proto/*.go
+
+# Creds
+.env
+.env.example
+grpcexample_config_example.yaml

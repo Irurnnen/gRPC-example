@@ -1,5 +1,5 @@
-//go:build release
-// +build release
+//go:build debug
+// +build debug
 
 package main
 
@@ -13,6 +13,7 @@ import (
 
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
 func main() {
@@ -36,6 +37,9 @@ func main() {
 	}
 	// Create server
 	s := grpc.NewServer()
+
+	// Setup reflection (for interactive docs)
+	reflection.Register(s)
 
 	// Setup controllers
 	helloController := new(controllers.HelloController)
